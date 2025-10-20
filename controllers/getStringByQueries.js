@@ -48,13 +48,23 @@ const getStringByQueries = (req, res, next) => {
     );
   }
 
-  if (contains_character !==undefined) {
+  if (contains_character !== undefined) {
     stringArray = stringArray.filter((item) =>
       item.value.includes(contains_character)
     );
   }
 
-  return res.status(200).json({ data: stringArray });
+  return res.status(200).json({
+    data: stringArray,
+    count: stringArray.length,
+    filters_applied: {
+      is_palindrome,
+      min_length,
+      max_length,
+      word_count,
+      contains_character,
+    },
+  });
 };
 
 export default getStringByQueries;

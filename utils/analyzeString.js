@@ -10,7 +10,7 @@ const analyzeString = (string) => {
     properties: {
       length: string.length,
       is_palindrome: isPalindrome(string),
-      unique_Characters: getUniqueCharacter(string),
+      unique_characters: getUniqueCharacter(string),
       word_count: string.split(" ").length,
       sha256_hash: generateSHA256(string),
       character_frequency_map: characterFrequencyMap(string),

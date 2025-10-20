@@ -13,7 +13,7 @@ const deleteString = (req, res, next) => {
   }
 
   strings.splice(stringToBedeleted, 1);
-  return res.status(204);
+  return res.status(204).send();
 };
 
 export default deleteString;

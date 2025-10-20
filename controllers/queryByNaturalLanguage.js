@@ -15,7 +15,7 @@ const queryByNaturalLanguage = (req, res, next) => {
     return next("Unable to parse natural language query", 400);
   }
 
-  let data = strings.filter(() => {
+  let data = strings.filter((item) => {
     if (parsedFilters.is_palindrome !== undefined) {
       if (item.properties.is_palindrome !== parsedFilters.is_palindrome) {
         return false;
