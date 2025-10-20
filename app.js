@@ -1,9 +1,23 @@
 import express from "express";
 import analyzeStringRoute from "./routes/analyzeStringRoute.js";
+import cors from "cors";
+import { rateLimit } from "express-rate-limit";
 
 const app = express();
 
+app.use(cors());
+
 app.use(express.json());
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  limit: 100,
+  standardHeaders: "draft-8",
+  legacyHeaders: false,
+  ipv6Subnet: 56,
+});
+
+app.use(limiter);
 
 export const strings = [];
 
